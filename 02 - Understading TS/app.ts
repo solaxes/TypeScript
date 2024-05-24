@@ -10,6 +10,10 @@ function printResult(num: number): void {
 
 printResult(add(5, 12));
 
-let combinValues;
-combinValues = add;
-console.log(combinValues(8, 8));
+// here we are defining type of the combineValues and we are making it like
+// combineValues is of function type which accepts two parameters and returns number
+let combineValues: (a: number, b: number) => number;
+
+combineValues = add;
+
+console.log(combineValues(8, 8));
