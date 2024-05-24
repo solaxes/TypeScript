@@ -12,3 +12,10 @@ userInput = "Jaidev";
 if (typeof userInput === "string") {
   userName = userInput;
 }
+
+// This function will never return any value even not undefined
+function generateError(message: string, code: number): never {
+  throw { message: message, errorCode: code };
+}
+
+generateError("An error occurred", 500);

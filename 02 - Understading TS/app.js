@@ -1,12 +1,15 @@
-// This function returns number type of value
-function add(n1, n2) {
-    return n1 + n2;
+// unknown type - Better than any type
+// unknown cannot be assigned to different types, it checks the type
+var userInput;
+var userName;
+userInput = 5;
+userInput = "Jaidev";
+// checking if userInput is of type string, then only assign to userName which is strict string type
+if (typeof userInput === "string") {
+    userName = userInput;
 }
-// returns no value hence return type is void
-function printResult(num) {
-    console.log("Result : " + num);
+// This function will never return any value even not undefined
+function generateError(message, code) {
+    throw { message: message, errorCode: code };
 }
-printResult(add(5, 12));
-var combinValues;
-combinValues = add;
-console.log(combinValues(8, 8));
+generateError("An error occurred", 500);
