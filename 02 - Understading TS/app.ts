@@ -11,4 +11,5 @@ function printResult(num: number): void {
 printResult(add(5, 12));
 
 let combinValues;
-
+combinValues = add;
+console.log(combinValues(8, 8));
