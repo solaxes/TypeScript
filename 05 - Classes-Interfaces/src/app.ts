@@ -55,10 +55,10 @@
 
 // Option property
 
-interface Named {
-  name: string;
-  output?: string; // Optional property
-}
+// interface Named {
+//   name: string;
+//   output?: string; // Optional property
+// }
 
 class Person implements Named {
   name: string;
