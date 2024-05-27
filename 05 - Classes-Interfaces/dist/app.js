@@ -1,11 +1,8 @@
 "use strict";
-var user1;
-user1 = {
-    name: "Jaidev",
-    age: 30,
-    greet: function (phrase) {
-        console.log(phrase + " " + this.name);
-    },
-};
-user1.greet("Hi there, I am ");
+var Person = (function () {
+    function Person(n) {
+        this.name = n;
+    }
+    return Person;
+}());
 //# sourceMappingURL=app.js.map
