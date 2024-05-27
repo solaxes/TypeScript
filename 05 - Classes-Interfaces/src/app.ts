@@ -56,8 +56,17 @@ class AccountingDepartment extends Department {
 }
 
 class ITDepartment extends Department {
-  constructor(id: number) {
+  static instance: ITDepartment;
+  private constructor(id: number) {
     super(id, "IT");
+  }
+
+  static getInstance() {
+    if (ITDepartment.instance) {
+      return this.instance;
+    }
+    this.instance = new ITDepartment(2);
+    return this.instance;
   }
 }
 

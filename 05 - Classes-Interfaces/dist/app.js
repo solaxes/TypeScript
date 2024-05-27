@@ -73,6 +73,13 @@ var ITDepartment = (function (_super) {
     function ITDepartment(id) {
         return _super.call(this, id, "IT") || this;
     }
+    ITDepartment.getInstance = function () {
+        if (ITDepartment.instance) {
+            return this.instance;
+        }
+        this.instance = new ITDepartment(2);
+        return this.instance;
+    };
     return ITDepartment;
 }(Department));
 console.log(Department.fiscalYear);
