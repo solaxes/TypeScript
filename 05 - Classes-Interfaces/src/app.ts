@@ -1,4 +1,5 @@
-class Department {
+abstract class Department {
+  static fiscalYear = 2024;
   private id: number;
   name: string;
 
@@ -10,7 +11,7 @@ class Department {
   }
 
   describe(this: Department) {
-    console.log("Department: " + this.name);
+    console.log("Department: " + `${this.id} - ${this.name}`);
   }
 
   addEmployee(employee: string) {
@@ -21,9 +22,49 @@ class Department {
     console.log(this.employees.length);
     console.log(this.employees);
   }
+
+  static createEmploye(name: string) {
+    return { name: name };
+  }
 }
 
-const accounting = new Department(1, "Accounting");
+class AccountingDepartment extends Department {
+  private lastReport: string;
+
+  constructor(id: number, private reports: string[]) {
+    super(id, "Accounting");
+    this.lastReport = reports[0];
+  }
+
+  addEmployee(name: string) {
+    if (name == "Jaidev") {
+      return;
+    }
+  }
+
+  getReports() {
+    return this.reports;
+  }
+
+  get mostReccentReport() {
+    return this.lastReport;
+  }
+
+  set mostRecentReport(value: string) {
+    this.lastReport = value;
+  }
+}
+
+class ITDepartment extends Department {
+  constructor(id: number) {
+    super(id, "IT");
+  }
+}
+
+console.log(Department.fiscalYear);
+const employee = Department.createEmploye("Jaidev"); // calling staic method
+
+const accounting = new AccountingDepartment(1, ["new report"]);
 
 accounting.addEmployee("Jaidev");
 accounting.addEmployee("Lovely");
